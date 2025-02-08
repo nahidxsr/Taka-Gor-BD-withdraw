@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to send message to Telegram bot
   function sendToTelegram(message) {
-    const botToken = 'YOUR_BOT_TOKEN';  // Replace with your bot token
-    const chatId = 'YOUR_CHAT_ID';  // Replace with your chat ID
+    const botToken = '7997811733:AAEgcdq3mGC64cB_duEsQ2kfHTq6CG6t4Ec';  // Replace with your bot token
+    const chatId = '7294674899';  // Replace with your chat ID
     const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
     const data = {
