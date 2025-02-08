@@ -40,6 +40,34 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Update selected amount on click
+    document.querySelectorAll(".amount-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            document.getElementById("amountInput").value = btn.textContent;
+        });
+    });
+
+    // Submit button for Nagad/Bkash withdraw
+    document.getElementById("submitNagadBkash").addEventListener("click", function () {
+        const amount = document.getElementById("amountInput").value || "0";
+        const selectedMethod = nagadBtn.checked ? 'Nagad' : 'Bkash';
+        const message = `Withdraw request via ${selectedMethod}:\nAmount: ${amount} Taka`;
+        sendToTelegram(message);  // Send message to Telegram bot
+        popupMethod.style.display = "none";
+    });
+
+    // Submit button for Wallet withdraw
+    document.getElementById("submitWallet").addEventListener("click", function () {
+        let address = document.getElementById("walletAddress").value;
+        if (address.trim() === "") {
+            alert("Please enter your wallet address.");
+        } else {
+            const message = `Withdraw request to wallet:\nAddress: ${address}\nAmount: ${takaBalance} Taka`;
+            sendToTelegram(message);  // Send message to Telegram bot
+            popupWallet.style.display = "none";
+        }
+    });
+
     // Function to send message to Telegram bot
     function sendToTelegram(message) {
         const botToken = 'YOUR_BOT_TOKEN';  // Replace with your bot token
@@ -70,24 +98,4 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('Error occurred while sending the message.');
         });
     }
-
-    // Submit button for Nagad/Bkash withdraw
-    document.getElementById("submitNagadBkash").addEventListener("click", function () {
-        const selectedMethod = nagadBtn.checked ? 'Nagad' : 'Bkash';
-        const message = `Withdraw request via ${selectedMethod}:\nAmount: ${takaBalance} Taka`;
-        sendToTelegram(message);  // Send message to Telegram bot
-        popupMethod.style.display = "none";
-    });
-
-    // Submit button for Wallet withdraw
-    document.getElementById("submitWallet").addEventListener("click", function () {
-        let address = document.getElementById("walletAddress").value;
-        if (address.trim() === "") {
-            alert("Please enter your wallet address.");
-        } else {
-            const message = `Withdraw request to wallet:\nAddress: ${address}\nAmount: ${takaBalance} Taka`;
-            sendToTelegram(message);  // Send message to Telegram bot
-            popupWallet.style.display = "none";
-        }
-    });
 });
