@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Withdraw - Taka Gor BD</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="withdraw.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -33,16 +33,17 @@
     <div class="popup" id="popupMethod">
         <div class="popup-content">
             <p>কত টাকা উইথড্র করতে চান?</p>
-            <div class="amount-options">
-                <button class="amount-btn">২০০</button>
-                <button class="amount-btn">৩০০</button>
-                <button class="amount-btn">৪০০</button>
-                <button class="amount-btn">৫০০</button>
-                <button class="amount-btn">৬০০</button>
-                <button class="amount-btn">৭০০</button>
-                <button class="amount-btn">৮০০</button>
-                <button class="amount-btn">১০০০</button>
-            </div>
+            <ul id="amountOptions">
+                <li class="amount-btn">২০০</li>
+                <li class="amount-btn">৩০০</li>
+                <li class="amount-btn">৪০০</li>
+                <li class="amount-btn">৫০০</li>
+                <li class="amount-btn">৬০০</li>
+                <li class="amount-btn">৭০০</li>
+                <li class="amount-btn">৮০০</li>
+                <li class="amount-btn">১০০০</li>
+            </ul>
+            <input type="number" id="amountInput" placeholder="নিজে পরিমাণ লিখুন" />
             <button class="submit-btn" id="submitNagadBkash">Submit</button>
             <button class="close-btn">Close</button>
         </div>
@@ -57,7 +58,6 @@
                 <button class="wallet-btn">TON</button>
                 <button class="wallet-btn">BMB</button>
                 <button class="wallet-btn">TRX</button>
-                <!-- Add more as needed -->
             </div>
             <input type="text" id="walletAddress" placeholder="আপনার অ্যাড্রেস লিখুন">
             <button class="submit-btn" id="submitWallet">Submit</button>
@@ -65,6 +65,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="withdraw.js"></script>
 </body>
-                                                </html>
+</html>
