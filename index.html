@@ -7,26 +7,34 @@
   <link rel="stylesheet" href="withdraw.css">
 </head>
 <body>
+  <!-- Notification Section (Sliding notice) -->
+  <div id="notification" class="notification">
+    <marquee>উইথড্র সিস্টেম চালু আছে। টাকা ঘর বিডি</marquee>
+  </div>
+  
   <!-- Header Section -->
   <header>
-    <img src="logo.png" alt="Taka Gor BD" class="logo">
-    <h1>Withdraw Funds</h1>
+    <div class="logo">
+      <h1>টাকা ঘর বিডি</h1>
+    </div>
   </header>
+  
   <!-- Balance Section -->
   <section class="balance-section">
-    <h2>আপনার বর্তমান ব্যালেন্স</h2>
+    <h2>আপনার ব্যালেন্স</h2>
     <p>💰 <span id="userBalance">0</span> ≈ <b>৳<span id="userTaka">0</span></b></p>
   </section>
+
   <!-- Withdraw Options Section -->
-  <section class="withdraw-section">
-    <h3>উইথড্র করতে চান কিসের মাধ্যমে?</h3>
-    <div class="withdraw-methods">
-      <button class="method-btn" id="nagad-btn">নগদ</button>
-      <button class="method-btn" id="bkash-btn">বিকাশ</button>
-      <button class="method-btn" id="wallet-btn">ওয়ালেট</button>
+  <section class="withdraw-options">
+    <button class="wallet-btn" id="wallet-btn">ওয়ালেট</button>
+    <div class="payment-methods">
+      <button class="payment-btn" id="nagad-btn">নগদ</button>
+      <button class="payment-btn" id="bkash-btn">বিকাশ</button>
     </div>
   </section>
-  <!-- Popup for Nagad/Bkash -->
+
+  <!-- Popup for Nagad/Bkash Withdraw -->
   <div class="popup" id="popupMethod">
     <div class="popup-content">
       <p>কত টাকা উইথড্র করতে চান?</p>
@@ -46,9 +54,11 @@
       <p id="withdrawRequest"></p>
     </div>
   </div>
-  <!-- Popup for Wallet -->
+
+  <!-- Popup for Wallet Withdraw -->
   <div class="popup" id="popupWallet">
     <div class="popup-content">
+      <p>Used Amount (USD): <span id="usdAmount">0</span></p>
       <p>আপনি কোন নেটওয়ার্কের মাধ্যমে উইথড্র করতে চান?</p>
       <div class="wallet-options">
         <input type="radio" name="walletOption" id="btc" value="BTC">
@@ -68,4 +78,4 @@
 
   <script src="withdraw.js"></script>
 </body>
-            </html>
+          </html>
